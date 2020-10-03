@@ -1,3 +1,3 @@
 #pragma once
 
-void render_anim(void);
+void render_bongocat(void);
