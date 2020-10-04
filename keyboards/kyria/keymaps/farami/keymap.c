@@ -157,27 +157,27 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 #ifdef OLED_DRIVER_ENABLE
-oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
-void oled_task_user(void) { render_oled(); }
+    oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
+    void oled_task_user(void) { render_oled(); }
 #endif
 
 #ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        // Volume control
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
+    void encoder_update_user(uint8_t index, bool clockwise) {
+        if (index == 0) {
+            // Volume control
+            if (clockwise) {
+                tap_code(KC_VOLU);
+            } else {
+                tap_code(KC_VOLD);
+            }
+        }
+        else if (index == 1) {
+            // Page up/Page down
+            if (clockwise) {
+                tap_code(KC_PGDN);
+            } else {
+                tap_code(KC_PGUP);
+            }
         }
     }
-    else if (index == 1) {
-        // Page up/Page down
-        if (clockwise) {
-            tap_code(KC_PGDN);
-        } else {
-            tap_code(KC_PGUP);
-        }
-    }
-}
 #endif
